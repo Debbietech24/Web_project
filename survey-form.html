@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Survey Form</title>
+  <link rel="stylesheet" href="survey-form.css">
+</head>
+<body>
+  <main>
+    <h1 id="title">Customer Satisfaction Survey</h1>
+    <p id="description">We value your feedback. Please take a moment to fill out this short survey!</p>
+
+    <form id="survey-form">
+      <!-- Name Field -->
+      <label id="name-label" for="name">Name:</label>
+      <input
+        id="name"
+        type="text"
+        name="name"
+        placeholder="Enter your name"
+        required
+      />
+
+      <!-- Email Field -->
+      <label id="email-label" for="email">Email:</label>
+      <input
+        id="email"
+        type="email"
+        name="email"
+        placeholder="Enter your email"
+        required
+      />
+
+      <!-- Number Field -->
+      <label id="number-label" for="number">Age:</label>
+      <input
+        id="number"
+        type="number"
+        name="age"
+        placeholder="Enter your age"
+        min="18"
+        max="99"
+        required
+      />
+
+      <!-- Dropdown Field -->
+      <label for="dropdown">How did you hear about us?</label>
+      <select id="dropdown" name="referral" required>
+        <option value="">--Select an option--</option>
+        <option value="social-media">Social Media</option>
+        <option value="friend">Friend</option>
+        <option value="advertisement">Advertisement</option>
+      </select>
+
+      <!-- Radio Buttons -->
+      <fieldset>
+        <legend>How satisfied are you with our services?</legend>
+        <label>
+          <input type="radio" name="satisfaction" value="very-satisfied" required />
+          Very Satisfied
+        </label>
+        <label>
+          <input type="radio" name="satisfaction" value="satisfied" />
+          Satisfied
+        </label>
+        <label>
+          <input type="radio" name="satisfaction" value="unsatisfied" />
+          Unsatisfied
+        </label>
+      </fieldset>
+
+      <!-- Checkboxes -->
+      <fieldset>
+        <legend>What services do you use? (Select all that apply)</legend>
+        <label>
+          <input type="checkbox" name="services" value="design" />
+          Design
+        </label>
+        <label>
+          <input type="checkbox" name="services" value="development" />
+          Development
+        </label>
+        <label>
+          <input type="checkbox" name="services" value="marketing" />
+          Marketing
+        </label>
+      </fieldset>
+
+      <!-- Textarea -->
+      <label for="comments">Additional Comments:</label>
+      <textarea
+        id="comments"
+        name="comments"
+        placeholder="Enter your comments here..."
+      ></textarea>
+
+      <!-- Submit Button -->
+      <button id="submit" type="submit">Submit</button>
+    </form>
+  </main>
+</body>
+</html>
