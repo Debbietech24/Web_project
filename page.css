@@ -14,17 +14,22 @@ body {
 /* ===== HEADER & NAVBAR ===== */
 
 #header {
-  position: fixed;            
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   background: #ffffff;
-  display: flex;           
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 1.5rem;
+  padding: 0.75rem 1.5rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* left | center | right */
   z-index: 1000;
+}
+.center-wrapper {
+  display: flex;
+  justify-content: center;
 }
 
 .logo-wrapper {
@@ -48,6 +53,7 @@ body {
 #nav-bar {
   display: flex;
   gap: 1rem;
+  justify-content: center;
 }
 
 .nav-link {
@@ -63,7 +69,40 @@ body {
 
 /* Push content below fixed header */
 main {
-  padding-top: 4.5rem;
+  padding-top: 3.75rem;/* FIXED */
+}
+
+/* ===== THEME TOGGLE SWITCH ===== */
+
+#theme-toggle {
+  width: 45px;
+  height: 24px;
+  background: #d4d4d8;
+  border-radius: 30px;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+}
+
+#theme-toggle::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: transform 0.3s ease;
+}
+
+body.dark-mode #theme-toggle {
+  background: #0f766e;
+}
+
+body.dark-mode #theme-toggle::before {
+  transform: translateX(21px); /* SLIDES RIGHT */
 }
 
 /* ===== HERO SECTION ===== */
@@ -100,7 +139,7 @@ main {
 }
 
 #email {
-  min-width: 250px;
+  min-width: 320px;
   padding: 0.75rem 1rem;
   border-radius: 999px;
   border: 1px solid #cbd5f5;
@@ -154,7 +193,7 @@ main {
 /* ===== FEATURES ===== */
 
 .features-grid {
-  display: flex;             
+  display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1.5rem;
@@ -246,9 +285,15 @@ main {
   color: #6b7280;
 }
 
-/* ===== MEDIA QUERY (REQUIRED) ===== */
+/* ===== MEDIA QUERY (MOBILE FIXES) ===== */
 
 @media (max-width: 700px) {
+
+  /* Header stacks → becomes taller → add more top spacing */
+  main {
+    padding-top: 8rem; /* FIXED FOR MOBILE */
+  }
+
   #header {
     flex-direction: column;
     align-items: flex-start;
@@ -270,12 +315,13 @@ main {
   }
 }
 
+/* ===== DARK MODE ===== */
+
 body.dark-mode {
   background-color: #050816;
   color: #f5f5f5;
 }
 
-/* Header, hero, and sections */
 body.dark-mode #header {
   background-color: #0b1020;
 }
@@ -285,14 +331,12 @@ body.dark-mode .section {
   background: #0b1020;
 }
 
-/* Cards */
 body.dark-mode .feature-card,
 body.dark-mode .pricing-card {
   background-color: #151a2a;
   border-color: #262b3b;
 }
 
-/* Text colors */
 body.dark-mode h1,
 body.dark-mode h2,
 body.dark-mode h3,
@@ -301,19 +345,16 @@ body.dark-mode li {
   color: #f5f5f5;
 }
 
-/* Nav links */
 body.dark-mode .nav-link {
   color: #f5f5f5;
 }
 
-/* Buttons */
 body.dark-mode .btn-select,
 body.dark-mode #submit {
   background-color: #f5f5f5;
   color: #050816;
 }
 
-/* Footer */
 body.dark-mode #footer {
   background-color: #0b1020;
   border-top: 1px solid #262b3b;
