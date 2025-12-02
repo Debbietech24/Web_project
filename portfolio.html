@@ -11,6 +11,10 @@
     <nav id="navbar">
       <div class="nav-container">
         <a href="#welcome-section" class="logo"></a>
+
+        <div class="left-controls">
+  <button id="theme-toggle"></button>
+</div>
         <ul class="nav-links">
           <li><a href="#welcome-section">Home</a></li>
           <li><a href="#projects">Projects</a></li>
@@ -44,14 +48,14 @@
 
       <div class="projects-grid">
         <a
-          href="https://Debbietech24.github.io/Web_project/Registration-form.html"
-          class="Registration-form"
+          href="https://Debbietech24.github.io/Web_project/survey-form.html"
+          class="project-title"
           target="_blank"
         >
           <div class="project-inner">
-            <h3 class="project-title">Registration-form</h3>
+            <h3 class="project-title">survey-form</h3>
             <p class="project-description">
-              A clean, mobile-first landing page built with semantic HTML and modern CSS.
+                A responsive survey form with a clean layout and intuitive user inputs.
             </p>
             <span class="project-tag">HTML</span>
             <span class="project-tag">CSS</span>
@@ -59,17 +63,17 @@
         </a>
 
         <a
-          href="https://Debbietech24.github.io/Web_project/cafe_menu.html"
+          href="https://Debbietech24.github.io/Web_project/page.html"
           class="project-tile"
           target="_blank"
         >
           <div class="project-inner">
-            <h3 class="project-title">Cafe_menu</h3>
+            <h3 class="project-title">CalmWave project</h3>
             <p class="project-description">
-              A dynamic quiz application with score tracking and smooth transitions.
+            A clean, web-first landing page built with semantic HTML and modern CSS.
             </p>
-            <span class="project-tag">JavaScript</span>
-            <span class="project-tag">UI</span>
+            <span class="project-tag">Html</span>
+            <span class="project-tag">Css</span>
           </div>
         </a>
 
@@ -83,8 +87,8 @@
             <p class="project-description">
               A minimal portfolio layout that you can easily customize and extend.
             </p>
-            <span class="project-tag">Frontend</span>
-            <span class="project-tag">Design</span>
+            <span class="project-tag">Html</span>
+            <span class="project-tag">Css</span>
           </div>
         </a>
       </div>
@@ -100,12 +104,12 @@
       <div class="contact-content">
         <p>
           Email:
-          <a href="oludaredeborah17@gmail.com">oludaredeborah17@gmail.com</a>
+          <a href="mailto:oludaredeborah17@gmail.com">oludaredeborah17@gmail.com</a>
         </p>
         <p>
           Or reach me via
           <a
-            href="https://www.linkedin.com"
+            href="https://www.linkedin.com/in/oludare-deborah-400872232"
             target="_blank"
             rel="noreferrer"
             >LinkedIn</a
@@ -116,7 +120,14 @@
 
     <!-- Footer -->
     <footer>
-      <p>Built with ❤️ and a lot of learning.</p>
+      <p>copyright @ Deborh 2025</p>  
     </footer>
+     <script>
+      const toggleBtn = document.getElementById('theme-toggle');
+
+      toggleBtn.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+      });
+      </script>
   </body>
 </html>
