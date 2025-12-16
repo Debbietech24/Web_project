@@ -1,133 +1,508 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>My Personal Portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="portfolio.css" />
-  </head>
-  <body>
-    <!-- Navbar -->
-    <nav id="navbar">
-      <div class="nav-container">
-        <a href="#welcome-section" class="logo"></a>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Deborah's Portfolio </title>
 
-        <div class="left-controls">
-  <button id="theme-toggle"></button>
-</div>
-        <ul class="nav-links">
-          <li><a href="#welcome-section">Home</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
 
-    <!-- Welcome Section -->
-    <section id="welcome-section">
-      <div class="welcome-content">
-        <h1>Hello, I'm Deborah</h1>
-        <p class="subtitle">Front-end developer and a Co-founder</p>
-        <a
-          id="profile-link"
-          href="https://github.com/Debbietech24"
-          target="_blank"
-          class="btn primary-btn"
-        >
-          View my GitHub
-        </a>
-      </div>
-    </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-      <h2 class="section-title">Projects</h2>
-      <p class="section-subtitle">
-        A few things I've built recently.
-      </p>
+  <style>
+    :root{
+      --page-max: 980px;
+      --bg: #f7f8fb;
+      --card: #ffffff;
+      --muted: #6b7280;
+      --accent: #0f172a;
+      --line: #eef2f7;
+      --link: #0b5394;
+    }
 
-      <div class="projects-grid">
-        <a
-          href="https://Debbietech24.github.io/Web_project/survey-form.html"
-          class="project-title"
-          target="_blank"
-        >
-          <div class="project-inner">
-            <h3 class="project-title">survey-form</h3>
-            <p class="project-description">
-                A responsive survey form with a clean layout and intuitive user inputs.
-            </p>
-            <span class="project-tag">HTML</span>
-            <span class="project-tag">CSS</span>
-          </div>
-        </a>
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: var(--bg);
+      color: var(--accent);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
 
-        <a
-          href="https://Debbietech24.github.io/Web_project/page.html"
-          class="project-tile"
-          target="_blank"
-        >
-          <div class="project-inner">
-            <h3 class="project-title">CalmWave project</h3>
-            <p class="project-description">
-            A clean, web-first landing page built with semantic HTML and modern CSS.
-            </p>
-            <span class="project-tag">Html</span>
-            <span class="project-tag">Css</span>
-          </div>
-        </a>
+    /* main container */
+    .container{
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 36px;
+    }
 
-        <a
-          href="https://Debbietech24.github.io/Web_project/Photo-gallery.html"
-          class="project-tile"
-          target="_blank"
-        >
-          <div class="project-inner">
-            <h3 class="project-title">Photo-gallery</h3>
-            <p class="project-description">
-              A minimal portfolio layout that you can easily customize and extend.
-            </p>
-            <span class="project-tag">Html</span>
-            <span class="project-tag">Css</span>
-          </div>
-        </a>
-      </div>
-    </section>
+    /* NAV */
+nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0; /* remove top/bottom spacing */
+  border-bottom:1px solid var(--line);
+  height:40px; /* optional: fix navbar height */
+}
 
-    <!-- Contact Section -->
-    <section id="contact">
-      <h2 class="section-title">Contact</h2>
-      <p class="section-subtitle">
-        Want to collaborate or just say hi? I’d love to hear from you.
-      </p>
+/* LEFT */
+.nav-left{
+  display:flex;
+  align-items:center;
+}
 
-      <div class="contact-content">
-        <p>
-          Email:
-          <a href="mailto:oludaredeborah17@gmail.com">oludaredeborah17@gmail.com</a>
+.brand-name{
+  font-size:24px; /* bigger OD */
+  font-weight:800;
+  letter-spacing:0.5px;
+}
+
+/* RIGHT */
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+/* COMMON STYLE FOR ALL NAV ITEMS */
+.nav-item{
+  font-size:16px;
+  font-weight:600;
+  color:var(--accent);
+  text-decoration:none;
+  padding:6px 14px;
+  border-radius:8px;
+  background:rgba(15,23,42,0.06); /* subtle button style */
+  transition: background 0.2s, color 0.2s;
+}
+
+/* HOVER EFFECT */
+.nav-item:hover{
+  background:rgba(15,23,42,0.12);
+  color:var(--accent);
+}
+
+ 
+    
+    /* HERO */
+    .hero{
+      display:flex;
+      gap:28px;
+      align-items:center;
+      padding:40px 0 18px;
+    }
+    .hero-left{flex:1;min-width:0}
+    .hi{
+      margin:0;
+      color:var(--muted);
+      font-size:16px;
+      font-weight:600;
+    }
+    h1{
+      margin:10px 0 6px;
+      font-size:44px;
+      line-height:1.02;
+      font-weight:800;
+      color:var(--accent);
+    }
+    .roles{
+      display:block;
+      color:var(--muted);
+      font-weight:600;
+      font-size:18px;
+      margin-top:6px;
+    }
+    .about-short{
+      margin-top:14px;
+      color:var(--muted);
+      max-width:60ch;
+      font-weight:400;
+      font-size:15px;
+    }
+    .cta{margin-top:20px}
+    .btn{
+      display:inline-block;
+      padding:10px 16px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:700;
+      font-size:14px;
+    }
+    .btn-primary{
+      background:#111827;
+      color:white;
+      box-shadow: 0 8px 24px rgba(9,10,20,0.06);
+    }
+    .btn-ghost{
+      background:transparent;
+      border:1px solid var(--line);
+      color:var(--accent);
+      margin-left:10px;
+    }
+
+    .picture{
+      width:170px;height:170px;border-radius:999px;overflow:hidden;flex-shrink:0;
+      border: 6px solid rgba(255,255,255,0.8);
+      box-shadow: 0 10px 30px rgba(10,20,40,0.06);
+      background: linear-gradient(180deg, #fff, #fafbff);
+    }
+    .picture img{width:100%;height:100%;object-fit:cover;display:block}
+
+    /* sections */
+    main{margin-top:8px}
+    section{margin-top:42px}
+    h2.section-title{
+      font-size:13px;
+      color:var(--muted);
+      letter-spacing:1px;
+      margin:0 0 12px;
+      font-weight:700;
+    }
+
+    /* SKILLS */
+    .skills{display:flex;flex-wrap:wrap;gap:12px}
+    .skill{
+      background:var(--card);
+      padding:9px 14px;
+      border-radius:10px;
+      border:1px solid var(--line);
+      font-weight:600;
+      font-size:14px;
+      box-shadow: 0 6px 16px rgba(12,18,30,0.03);
+    }
+
+    /* WORKS */
+    .works{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:18px;
+    }
+    .work-card{
+      background:var(--card);
+      padding:16px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      box-shadow: 0 10px 30px rgba(12,18,30,0.03);
+      display:flex;
+      flex-direction:column;
+      min-height:230px;
+    }
+    .work-logos{display:flex;gap:8px;align-items:center;margin-bottom:10px}
+    .work-logos img{height:20px;width:auto;display:block}
+    .work-card h3{margin:0 0 8px;font-size:18px}
+    .work-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.4}
+    .work-img{
+      width:100%;height:150px;object-fit:cover;border-radius:8px;margin-top:12px;
+      align-self:stretch;
+    }
+    .work-links{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
+    .small-link{font-size:14px;color:var(--link);text-decoration:none;font-weight:600}
+     .work-logos i {
+  font-size: 22px;
+  margin-right: 8px;
+}
+
+.fa-html5 { color: #e34f26; }
+.fa-css3-alt { color: #2965f1; }
+.fa-js-square { color: #f7df1e; }
+
+    /* ARTICLES */
+    .articles{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:12px;
+    }
+    .article{
+      background:var(--card);
+      padding:12px;
+      border-radius:10px;
+      border:1px solid var(--line);
+      box-shadow: 0 8px 20px rgba(12,18,30,0.03);
+    }
+    .article h4{margin:0 0 8px;font-size:16px}
+    .article p{margin:0;color:var(--muted);font-size:14px}
+
+    /* CONTACT */
+    .contact{
+      background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(250,250,255,0.95));
+      padding:18px;border-radius:12px;border:1px solid var(--line);
+      display:flex;align-items:center;justify-content:space-between;gap:16px;
+      flex-wrap:wrap;
+    }
+    .contact p{margin:0;color:var(--muted)}
+    .contact .contact-btn{
+      display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;background:#111827;color:#fff;font-weight:700;
+    }
+
+    footer{margin-top:36px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* responsive */
+    @media (max-width:900px){
+      .hero{flex-direction:column;align-items:flex-start}
+      .avatar{width:120px;height:120px}
+      h1{font-size:32px}
+      .contact{flex-direction:column;align-items:flex-start;}
+    }
+    #theme-toggle {
+  width: 45px;
+  height: 24px;
+  background: #d4d4d8;
+  border-radius: 30px;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+}
+
+#theme-toggle::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: transform 0.3s ease;
+}
+
+/* DARK MODE STYLES */
+body.dark-mode {
+  background: #0f172a; /* dark background */
+  color: #f8fafc; /* light text */
+}
+
+body.dark-mode .container {
+  background: #0f172a;
+}
+
+body.dark-mode .card,
+body.dark-mode .work-card,
+body.dark-mode .article,
+body.dark-mode .contact {
+  background: #1e293b; /* darker cards */
+  border-color: #334155; /* darker borders */
+  color: #f8fafc;
+}
+
+body.dark-mode a.nav-item {
+  color: #f8fafc;
+}
+
+body.dark-mode a.nav-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .btn-primary {
+  background: #0f766e;
+  color: #fff;
+}
+
+body.dark-mode .btn-ghost {
+  background: transparent;
+  color: #f8fafc;
+  border-color: #334155;
+}
+
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- NAV -->
+   <nav>
+  <!-- LEFT -->
+  <div class="nav-left">
+    <span class="brand-name">OD</span>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="nav-right">
+    <a href="#about" class="nav-item">About</a>
+    <a href="#works" class="nav-item">Works</a>
+    <a href="#contact" class="nav-item">Contact</a>
+    <a href="#skills" class="nav-item">Skills</a>
+    <a href="https://docs.google.com" target="_blank" rel="noopener" class="nav-item">Resume</a>
+    <button id="theme-toggle"></button>
+  </div>
+</nav>
+
+
+    <!-- HERO -->
+    <header class="hero" id="home" role="banner" aria-label="Introduction">
+      <div class="hero-left">
+        <h1>Hi, I'm Deborah Oludare
+          <span class="roles">Front end Developer</span>
+        </h1>
+
+        <p class="about-short">
+          I’m Deborah Oludare, a frontend developer passionate about building clean, responsive, and user-friendly web interfaces. I enjoy turning designs into functional websites using modern frontend technologies.
         </p>
-        <p>
-          Or reach me via
-          <a
-            href="https://www.linkedin.com/in/oludare-deborah-400872232"
-            target="_blank"
-            rel="noreferrer"
-            >LinkedIn</a
-          >.
-        </p>
-      </div>
-    </section>
 
-    <!-- Footer -->
+        <div class="cta">
+          <a class="btn btn-primary" href="#contact">Send Message</a>
+          <a class="btn btn-ghost" href="#works">See works</a>
+        </div>
+      </div>
+
+      <div class="picture" aria-hidden="true">
+        <img src="image/IMG-20250928-WA0098.jpg" alt="Deborah pic" onerror="this.src='https://via.placeholder.com/170'">
+      </div>
+    </header>
+
+    <main>
+      <!-- ABOUT -->
+      <section id="about" aria-labelledby="about-heading">
+        <h2 class="section-title" id="about-heading">ABOUT ME</h2>
+        <p>
+          I focus on building visually appealing user interfaces that provide smooth and intuitive experiences on both mobile and web.
+
+          I’m glad you stopped by — feel free to <a href="https://wa.me/2347089470449">reach out to me</a> to discuss a project or just say hi!
+        </p>
+        </section>
+    
+
+      <!-- SKILLS -->
+      <section id="skills" aria-labelledby="skills-heading">
+        <h2 class="section-title" id="skills-heading">SKILLS</h2>
+        <div class="skills" role="list">
+          <div class="skill" role="listitem">HTML</div>
+          <div class="skill" role="listitem">CSS</div>
+          <div class="skill" role="listitem">Javascript</div>
+          <div class="skill" role="listitem">Typescript</div>
+          <div class="skill" role="listitem">React Js</div>
+          <div class="skill" role="listitem">Next Js</div>
+          <div class="skill" role="listitem">Tailwind CSS</div>
+        </div>
+      </section>
+
+      <!-- WORKS -->
+      <section id="works" aria-labelledby="works-heading">
+        <h2 class="section-title" id="works-heading">WORKS</h2>
+
+        <div class="works">
+          <!-- TO-DO-LIST -->
+          <article class="work-card" aria-labelledby="w1-title">
+          
+            <div class="work-logos">
+                <i class="fab fa-html5"></i>
+                <i class="fab fa-css3-alt"></i>
+                <i class="fab fa-js-square"></i>
+            </div>
+            <h3 id="w1-title">To-Do-List</h3>
+            <p>A responsive To-Do List application built using HTML, CSS, and JavaScript to demonstrate core front-end development skills. The app allows users to add and delete tasks dynamically, showcasing effective DOM manipulation, event handling, and clean UI structuring.</p>
+            <img class="work-img" src="image/Screenshot 2025-12-09 071754.png" alt="Hamxaa screenshot">
+            <div class="work-links">
+              <a class="small-link" href="https://debbietech24.github.io/To-Do-list/" target="_blank" rel="noopener">Visit website</a>
+            </div>
+          </article>
+
+          <!-- Landing page -->
+          <article class="work-card" aria-labelledby="w2-title">
+            <div class="work-logos">
+             <i class="fab fa-html5"></i>
+            <i class="fab fa-css3-alt"></i> 
+            </div>
+            <h3 id="w2-title">Landing page</h3>
+            <p>A modern and responsive landing page designed and built using HTML and CSS, focused on clear layout structure, visual hierarchy, and user engagement.</p>
+            <img class="work-img" src="image/Screenshot 2025-12-09 073036.png" alt="RideFraser screenshot">
+            <div class="work-links">
+              <a class="small-link" href="https://debbietech24.github.io/Web_project/page.html" target="_blank" rel="noopener">Visit website</a>
+            </div>
+          </article>
+
+          <!-- GetBooks NG -->
+          <article class="work-card" aria-labelledby="w3-title">
+            <div class="work-logos">
+             <i class="fab fa-html5"></i>
+                <i class="fab fa-css3-alt"></i>
+              <img src="https://cdn.simpleicons.org/tailwindcss" alt="Tailwind CSS logo" />
+
+            </div>
+            <h3 id="w3-title">GetBooks NG</h3>
+            <p>An e-commerce store for buying and selling books based on user’s location.</p>
+            <img class="work-img" src="image/Screenshot 2025-12-16 130410.png" alt="GetBooks NG screenshot">
+            <div class="work-links">
+              <a class="small-link" href="https://dev.getbooks.ng" target="_blank" rel="noopener">Visit website</a>
+            </div>
+          </article>
+
+          <!-- Crypto Wallet --> 
+          <article class="work-card" aria-labelledby="w4-title">
+            <div class="work-logos">
+              <i class="fab fa-html5"></i>
+                <i class="fab fa-css3-alt"></i>
+            </div>
+            <h3 id="w4-title">Crypto Wallet</h3>
+            <p> A modern crypto wallet dashboard interface built with HTML and CSS, featuring a clean layout, dark-mode styling, and a finance-focused user experience.</p>
+            <img class="work-img" src="image/Screenshot 2025-12-09 072155.png" alt="Client portfolio screenshot">
+            <div class="work-links">
+              <a class="small-link" href="https://debbietech24.github.io/crypto-wallet/" target="_blank" rel="noopener">Visit website</a>
+            </div>
+          </article>
+
+          <!-- Survey form -->
+          <article class="work-card" aria-labelledby="w5-title">
+            <div class="work-logos">
+             <i class="fab fa-html5"></i>
+              <i class="fab fa-css3-alt"></i>
+            </div>
+            <h3 id="w5-title">Survey Form</h3>
+            <p>A responsive survey form built with HTML and CSS, designed to collect user feedback using well-structured inputs and a clean layout.</p>
+            <img class="work-img" src="image/Screenshot 2025-12-15 141655.png" alt=" survey form screenshot">
+            <div class="work-links">
+              <a class="small-link" href="https://debbietech24.github.io/Web_project/survey-form.html" target="_blank" rel="noopener">Visit website</a>
+            </div>
+          </article>
+
+          <!-- Registration Form -->
+          <article class="work-card" aria-labelledby="w6-title">
+            <div class="work-logos">
+              <i class="fab fa-html5"></i>
+                <i class="fab fa-css3-alt"></i>
+            </div>
+            <h3 id="w6-title">Registration Form</h3>
+            <p>The form is designed to be simple and intuitive, guiding users through the registration process with clearly labeled input fields and a well-structured layout.</p>
+            <img class="work-img" src="image/Screenshot 2025-12-15 141051.png" alt="Registration form screenshot">
+            <div class="work-links">
+              <a class="small-link" href="https://debbietech24.github.io/Web_project/Registration-form.html" target="_blank" rel="noopener">Visit website</a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+         <!-- CONTACT -->
+      <section id="contact" aria-labelledby="contact-heading">
+        <h2 class="section-title" id="contact-heading">LET'S GET IN TOUCH</h2>
+
+        <div class="contact">
+          <p>I'm always interested in hearing about new projects and opportunities.</p>
+          <a class="contact-btn" href="mailto:oludaredeborah17@gmail.com">Send Message</a>
+        </div>
+      </section>
+
+    </main>
+
     <footer>
-      <p>copyright @ Deborh 2025</p>  
+      <p>copyright © Deborah Oludare 2025</p>
     </footer>
-     <script>
+  </div>
+  <script>
       const toggleBtn = document.getElementById('theme-toggle');
 
       toggleBtn.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
       });
       </script>
-  </body>
+</body>
 </html>
