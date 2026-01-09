@@ -90,7 +90,60 @@ nav{
   color:var(--accent);
 }
 
- 
+ /* ===== NAVBAR STRUCTURE ===== */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+
+/* HAMBURGER ICON */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--accent);
+}
+
+/* ===== MOBILE NAV ===== */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-right {
+    position: absolute;
+    top: 56px;
+    left: 0;
+    width: 100%;
+    background: var(--card);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+    gap: 12px;
+    border-bottom: 1px solid var(--line);
+    display: none; /* hidden by default */
+  }
+
+  .nav-right.active {
+    display: flex;
+  }
+
+  .nav-item {
+    width: 100%;
+  }
+}
+
+/* DARK MODE FIX */
+body.dark-mode .nav-right {
+  background: #1e293b;
+}
+
     
     /* HERO */
     .hero{
@@ -311,6 +364,156 @@ body.dark-mode .btn-ghost {
   color: #f8fafc;
   border-color: #334155;
 }
+body.dark-mode #theme-toggle::before {
+  transform: translateX(21px);
+}
+/* ===================== */
+/* GLOBAL RESPONSIVENESS */
+/* ===================== */
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* CONTAINER */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+  /* ===================== */
+/* FIX MOBILE NAV HEADER */
+/* ===================== */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 16px; /* space from screen edges */
+  }
+
+  .nav-left {
+    margin-left: 0;
+  }
+
+  .menu-toggle {
+    display: block;
+    margin-left: auto; /* pushes hamburger to far right */
+  }
+
+  .nav-right {
+    top: 56px;
+  }
+}
+
+
+/* ===================== */
+/* HERO RESPONSIVE */
+/* ===================== */
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .hero-left {
+    align-items: center;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  .roles {
+    font-size: 16px;
+  }
+
+  .about-short {
+    font-size: 14px;
+    max-width: 100%;
+  }
+
+  .picture {
+    width: 130px;
+    height: 130px;
+  }
+
+  .cta {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+
+/* ===================== */
+/* SKILLS */
+/* ===================== */
+
+@media (max-width: 600px) {
+  .skills {
+    justify-content: center;
+  }
+
+  .skill {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+}
+
+/* ===================== */
+/* WORKS GRID */
+/* ===================== */
+
+@media (max-width: 768px) {
+  .works {
+    grid-template-columns: 1fr;
+  }
+
+  .work-card {
+    min-height: auto;
+  }
+
+  .work-img {
+    height: auto;
+  }
+}
+
+/* ===================== */
+/* CONTACT SECTION */
+/* ===================== */
+
+@media (max-width: 600px) {
+  .contact {
+    text-align: center;
+    align-items: center;
+  }
+
+  .contact-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ===================== */
+/* LARGE SCREENS */
+/* ===================== */
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1100px;
+  }
+
+  h1 {
+    font-size: 48px;
+  }
+
+  .about-short {
+    font-size: 16px;
+  }
+}
 
 
   </style>
@@ -319,23 +522,27 @@ body.dark-mode .btn-ghost {
 <body>
   <div class="container">
     <!-- NAV -->
-   <nav>
+  <nav class="navbar">
   <!-- LEFT -->
   <div class="nav-left">
     <span class="brand-name">OD</span>
   </div>
 
-  <!-- RIGHT -->
+  <!-- HAMBURGER -->
+  <button class="menu-toggle" aria-label="Toggle menu">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <!-- MENU -->
   <div class="nav-right">
     <a href="#about" class="nav-item">About</a>
     <a href="#works" class="nav-item">Works</a>
-    <a href="#contact" class="nav-item">Contact</a>
     <a href="#skills" class="nav-item">Skills</a>
-    <a href="https://docs.google.com" target="_blank" rel="noopener" class="nav-item">Resume</a>
+    <a href="#contact" class="nav-item">Contact</a>
+    <a href="file:///C:/Users/ASUS-E406/Downloads/Deborah%20Resume.pdf" target="_blank" class="nav-item">Resume</a>
     <button id="theme-toggle"></button>
   </div>
 </nav>
-
 
     <!-- HERO -->
     <header class="hero" id="home" role="banner" aria-label="Introduction">
@@ -497,12 +704,21 @@ body.dark-mode .btn-ghost {
       <p>copyright © Deborah Oludare 2025</p>
     </footer>
   </div>
-  <script>
-      const toggleBtn = document.getElementById('theme-toggle');
+    <script>
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const navMenu = document.querySelector('.nav-right');
+  const themeToggle = document.getElementById('theme-toggle');
 
-      toggleBtn.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-      });
-      </script>
+  // Mobile menu
+  toggleBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+
+  // Dark mode toggle
+  themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+  });
+</script>
+
 </body>
 </html>
